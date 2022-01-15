@@ -42,7 +42,7 @@ $(document).ready(function () {
 
     let request = new XMLHttpRequest();
     const weatherURL = `http://api.openweathermap.org/data/2.5/weather?${locParam}&units=${unit}&appid=${process.env.API_KEY}`;
-    const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?${locParam}&units=${unit}&appid=${process.env.API_KEY}`;
+    // const forecastURL = `http://api.openweathermap.org/data/2.5/forecast?${locParam}&units=${unit}&appid=${process.env.API_KEY}`;
 
     request.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
@@ -57,13 +57,13 @@ $(document).ready(function () {
       $('.showHumidity').text(`The humidity in ${location} is ${response.main.humidity}%`);
       $('.showTemp').text(`The temperature in ${unitTranslated} is ${response.main.temp} degrees.`);
     };
-    if ($("#forecast").prop("checked")) {
-      request.open("GET", forecastURL, true);
-      request.send();
-      getElements = function (response) {
-        // logic for forecast data to come
-      };
-    }
+    // if ($("#forecast").prop("checked")) {
+    //   request.open("GET", forecastURL, true);
+    //   request.send();
+    //   getElements = function(response) {
+    //     // logic for forecast data to come
+    //   };
+    // }
 
   });
 });
